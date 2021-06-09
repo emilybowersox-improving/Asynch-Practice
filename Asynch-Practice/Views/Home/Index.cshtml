@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model Asynch_Practice.ViewModels.Home.IndexViewModel
+
+<div class="text-center">
+    <h2>Random Number: @Model.RandomNumber</h2>
+
+    <p>Churck Norris Fact: @Model.ChuckNorrisFact</p>
+
+    <h2>The Seleucids</h2>
+
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Start Reign (B.C.)</th>
+            <th>End Reign (B.C.)</th>
+            <th>Consorts?</th>
+        </tr>
+        @foreach (var seleucid in Model.Seleucids)
+        {
+            <tr>
+                <td>@seleucid.Name</td>
+                <td>@seleucid.StartReign</td>
+                <td>@seleucid.EndReign</td>
+                <td>
+                    @foreach (var consort in seleucid.Consorts)
+                    {
+                        <span>@consort</span>
+                    }
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>
